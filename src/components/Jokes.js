@@ -1,27 +1,22 @@
 import React from 'react'
 import Joke from './Joke'
 
-export default class Component extends React.Component {
+const Jokes = ({ title, jokes }) => {
 
-  renderJokes() {
-    return this.props.jokes.map((joke, i) => {
+  const renderJokes = () => {
+    return jokes.map((joke, i) => {
       return <Joke {...joke} key={i} />
     })
   }
 
-  render() {
-    return (
-      <div className="joke-list">
-        <h1>{this.props.title}</h1>
-        <ul className="list-group">
-          {this.renderJokes()}
-        </ul>
-      </div>
-    )
-  }
-
+  return (
+    <div className="joke-list">
+      <h1>{ title }</h1>
+      <ul className="list-group">
+        { renderJokes() }
+      </ul>
+    </div>
+  )
 }
 
-Component.defaultProps = {
-  jokes: []
-}
+export default Jokes

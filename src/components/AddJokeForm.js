@@ -1,40 +1,36 @@
 import React from 'react'
 
-export default class Component extends React.Component {
+const AddJokeForm = ({ addJoke }) => {
 
-  constructor(props) {
-    super(props)
-    this.onSubmit = this.onSubmit.bind(this)
-  }
-
-  onSubmit(e) {
+  const onSubmit = (e) => {
     e.preventDefault()
+    let form = e.target
 
     let newJoke = {
-      question: e.target.question.value.trim(),
-      answer: e.target.answer.value.trim()
-     }
-     console.log("newJoke from form", newJoke)
+      question: form.question.value.trim(),
+      answer: form.answer.value.trim()
+    }
 
-    this.props.addJoke(newJoke)
+    addJoke(newJoke)
+    form.reset()
   }
 
-  render() {
-    return (
-      <form className="well" onSubmit={this.onSubmit}>
-        <fieldset className="form-group">
-          <label htmlFor="question">Question</label>
-          <input type="text" name="question" className="form-control" />
-        </fieldset>
-        <fieldset className="form-group">
-          <label htmlFor="answer">Answer</label>
-          <input type="text" name="answer" className="form-control" />
-        </fieldset>
-        <fieldset className="form-group">
-          <button className="btn btn-success">Add Task</button>
-        </fieldset>
-      </form>
-    )
-  }
+  return (
+    <form className="well" onSubmit={ onSubmit }>
+      <fieldset className="form-group">
+        <label htmlFor="question">Question</label>
+        <input type="text" name="question" className="form-control" />
+      </fieldset>
+      <fieldset className="form-group">
+        <label htmlFor="answer">Answer</label>
+        <input type="text" name="answer" className="form-control" />
+      </fieldset>
+      <fieldset className="form-group">
+        <button className="btn btn-success">Add Funny Joke</button>
+      </fieldset>
+    </form>
+  )
 
 }
+
+export default AddJokeForm

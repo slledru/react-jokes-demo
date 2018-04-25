@@ -1,14 +1,10 @@
 import React from 'react'
 
-export default class Component extends React.Component {
+const Joke = ({ question, answer }) => (
+  <li className="list-group-item">
+    <b>{ question }</b>
+    { answer }
+  </li>
+)
 
-  render() {
-    return (
-      <li className="list-group-item">
-        <b>{this.props.question}</b>
-        {this.props.answer}
-      </li>
-    )
-  }
-
-}
+export default Joke

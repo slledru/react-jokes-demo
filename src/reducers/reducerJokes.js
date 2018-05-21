@@ -1,13 +1,17 @@
-const ADD_JOKE = 'ADD_JOKE'
+import { ADD_JOKE } from '../actions/constants'
+
 const jokes = (state = [], action) => {
   switch (action.type) {
     case ADD_JOKE:
       console.log('action', action)
-      return state
+      return [
+        ...state,
+        action.payload
+      ]
 
     default:
       return state
   }
 }
 
-export { jokes, ADD_JOKE }
+export { jokes }

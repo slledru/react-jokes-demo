@@ -1,7 +1,9 @@
 import React from 'react'
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
+import addJoke from '../actions/actionAddJoke'
 
 const AddJokeForm = ({ addJoke }) => {
-
   const onSubmit = (e) => {
     e.preventDefault()
     let form = e.target
@@ -29,4 +31,8 @@ const AddJokeForm = ({ addJoke }) => {
 
 }
 
-export default AddJokeForm
+const mapDispatchToProps = (dispatch) => {
+  return bindActionCreators({ addJoke }, dispatch)
+}
+
+export default connect(null, mapDispatchToProps)(AddJokeForm)

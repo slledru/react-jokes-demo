@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import Jokes from './components/Jokes'
 
-import AddJokeForm from './components/AddJokeForm'
+import AddJokeForm from './containers/AddJokeForm'
 
 // normally this comes from process.env.API
 const API = 'https://powerful-beyond-70119.herokuapp.com/jokes'
@@ -15,11 +15,11 @@ class App extends Component {
   }
 
   async componentDidMount() {
-    const response = await fetch(API)
-    const json = await response.json()
-    console.log("jokes...", json)
-    this.setState({
-      jokes: json })
+    // const response = await fetch(API)
+    // const json = await response.json()
+    // console.log("jokes...", json)
+    // this.setState({
+    //   jokes: json })
   }
 
   addJoke = async (joke) => {
@@ -41,7 +41,7 @@ class App extends Component {
       <div className="App">
         <h1>Jokes</h1>
         <Jokes jokes={ this.state.jokes } title="World's best Penguin jokes"/>
-        <AddJokeForm addJoke={ this.addJoke } />
+        <AddJokeForm />
       </div>
     );
   }

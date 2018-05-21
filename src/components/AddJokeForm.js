@@ -20,13 +20,9 @@ const AddJokeForm = ({ addJoke }) => {
       <fieldset className="form-group">
         <label htmlFor="question">Question</label>
         <input type="text" name="question" className="form-control" />
-      </fieldset>
-      <fieldset className="form-group">
         <label htmlFor="answer">Answer</label>
         <input type="text" name="answer" className="form-control" />
-      </fieldset>
-      <fieldset className="form-group">
-        <button className="btn btn-success">Add Funny Joke</button>
+        <button className="btn btn-success">Add</button>
       </fieldset>
     </form>
   )

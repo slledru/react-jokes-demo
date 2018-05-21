@@ -1,10 +1,15 @@
 import React from 'react'
 
-const Joke = ({ question, answer }) => (
-  <li className="list-group-item">
-    <b>{ question }</b>
-    { answer }
-  </li>
-)
+const Joke = ({ question, answer }) => {
+
+
+
+  return (
+    <li className="list-group-item">
+      <b>{ question }</b>
+      <p>{ answer }</p>
+    </li>
+  )
+}
 
 export default Joke

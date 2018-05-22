@@ -1,16 +1,14 @@
 import React, { Component } from 'react';
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
 import './App.css';
+import getJokes from './actions/actionGetJokes'
 import Jokes from './containers/Jokes'
-
 import AddJokeForm from './containers/AddJokeForm'
 
 class App extends Component {
   async componentDidMount() {
-    // const response = await fetch(API)
-    // const json = await response.json()
-    // console.log("jokes...", json)
-    // this.setState({
-    //   jokes: json })
+    this.props.getJokes()
   }
 
   render() {
@@ -24,4 +22,10 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapDispatchToProps = (dispatch) => {
+  return bindActionCreators({
+    getJokes
+  }, dispatch)
+}
+
+export default connect(null, mapDispatchToProps)(App)
